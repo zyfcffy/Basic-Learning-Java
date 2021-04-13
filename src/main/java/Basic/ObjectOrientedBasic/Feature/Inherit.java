@@ -1,4 +1,4 @@
-package Basic.ObjectOrientedBasic.Inherit;
+package Basic.ObjectOrientedBasic.Feature;
 
 public class Inherit {
 

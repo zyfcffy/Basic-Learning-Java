@@ -1,8 +1,12 @@
-package Basic.ObjectOrientedBasic.Inherit;
+package Basic.ObjectOrientedBasic.Feature;
 
 public class Person {
     private String name;
     private int age;
+
+    public Person() {
+
+    }
 
     public Person(String name, int age) {
         this.name = name;
@@ -23,6 +27,10 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void work() {
+        System.out.println("上班");
     }
 }
 
