@@ -9,9 +9,9 @@ public class ClassInstance {
         String s1 = "class~";
         //1 通过class的静态变量class获取
         //Class c1 = String.class;  //Raw use of parameterized class 'Class'
-        Object c1 = String.class;
+        Class<String> c1 = String.class;
         //2 通过实例的 getClass() 方法获取
-        Object c2 = s1.getClass();
+        Class c2 = s1.getClass();
         //3 通过完整的完整类名获取
         Object c3 = Class.forName("java.lang.String");
         System.out.println(c1);
@@ -25,7 +25,7 @@ public class ClassInstance {
         printClassInfo(int.class);
     }
 
-    public static void printClassInfo(Class cla){
+    public static void printClassInfo(Class<?> cla){
         System.out.println("Class name:" + cla.getName());
         System.out.println("Simple name: " + cla.getSimpleName());
         System.out.println("Package name: " + cla.getPackage());
