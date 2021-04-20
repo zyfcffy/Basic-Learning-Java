@@ -1,6 +1,7 @@
 package Basic.ObjectOrientedBasic.Reflection;
 
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -11,9 +12,14 @@ import java.lang.reflect.Method;
 * 访问方法
 * Method getMethod(name, Class...)：获取某个public的Method（包括父类）
 * Method getDeclaredMethod(name, Class...)：获取当前类的某个Method（不包括父类）
+* 构造方法，当前定义类的构造方法，与父类无关
+* getConstructor(Class...)：获取某个public的Constructor；
+* getDeclaredConstructor(Class...)：获取某个Constructor；
+* getConstructors()：获取所有public的Constructor；
+* getDeclaredConstructors()：获取所有Constructor。
 * */
 public class ClassFieldAndMethod {
-    public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Class<Student> sc = Student.class;
         // name 和 score 是 private ，本类的 score 用 getDeclaredField 会将所有的字段都返回
         // 父类的字段是private的,子类无法获取父类私有实例
@@ -23,8 +29,9 @@ public class ClassFieldAndMethod {
         System.out.println(sc.getDeclaredField("score"));
         System.out.println(sc.getField("clazz"));
 
-        System.out.println(sc.getMethod("getClazz", String.class));
+        System.out.println(sc.getMethod("getClazz"));
         System.out.println(sc.getDeclaredMethod("getScore"));
+
 
         // 用反射来调用方法，用invoke方法
         /*
@@ -59,6 +66,13 @@ public class ClassFieldAndMethod {
         method.invoke(student);  //Student say hello
         Method method3 = Person.class.getMethod("hello");
         method3.invoke(new Student()); //Student say hello
+
+
+        // 调用构造方法  可以用Class提供的 newInstance 方法
+        //Student st = new Student()
+        Constructor<Student> con = Student.class.getConstructor();
+        Student st = con.newInstance();
+        System.out.println("Student clazz is :" + st.getClazz());
     }
 }
 class Person {
@@ -72,6 +86,8 @@ class Student extends Person {
     int score;
     public int clazz;
 
+    public Student(){}
+
     private void setScore(int score){
         this.score = score;
     }
@@ -80,7 +96,7 @@ class Student extends Person {
         return this.score;
     }
 
-    public int getClazz(String name){
+    public int getClazz(){
         return 2;
     }
 
