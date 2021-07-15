@@ -1,7 +1,7 @@
 package basic.collections;
 
-import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedList;
 
 /*
 * Queue 先进先出，一头进一头出
@@ -16,7 +16,18 @@ import java.util.Deque;
 * */
 public class DequeDemo {
   public static void main(String[] args) {
-    Deque<String> deque = new ArrayDeque<>();
-    
+
+    // 面向抽象，尽量持有接口，而不是具体实现类
+    Deque<String> deque = new LinkedList<>();
+    deque.offerLast("A"); //A
+    deque.offerLast("B"); //A <- B
+    deque.offerFirst("C"); //C <- A <- B
+
+    System.out.println(deque.peekFirst()); // C
+    System.out.println(deque.pollLast());  // B
+    System.out.println(deque.pollLast()); // A
+    System.out.println(deque.pollLast()); // C
+    System.out.println(deque.pollLast()); // null
+
   }
 }
