@@ -1,4 +1,4 @@
-package basic.thread;
+package basic.thread.demo;
 
 //1、创建一个Runnable接口实现类
 public class RunnableImpl implements Runnable {

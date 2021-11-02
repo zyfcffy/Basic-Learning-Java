@@ -1,4 +1,4 @@
-package basic.thread;
+package basic.thread.demo;
 
 public class demon06InnerClassThread {
     public static void main(String[] args) {

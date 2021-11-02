@@ -1,4 +1,4 @@
-package basic.thread;
+package basic.thread.demo;
 
 //1、创建一个Thread类的子类
 public class myThread01 extends Thread {
