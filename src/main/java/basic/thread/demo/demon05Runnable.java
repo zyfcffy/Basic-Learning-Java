@@ -1,4 +1,4 @@
-package basic.thread;
+package basic.thread.demo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

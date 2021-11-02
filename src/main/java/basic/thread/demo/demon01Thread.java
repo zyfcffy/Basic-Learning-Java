@@ -1,4 +1,4 @@
-package basic.thread;
+package basic.thread.demo;
 
 public class demon01Thread {
     //3、创建Thread类的子类对象
