@@ -9,7 +9,7 @@ public class MainNewThread {
     new Thread2().start();
 
     for (int i = 0; i < 100; i++) {
-      System.out.println("Main run...." + i);
+      System.out.println("DeamThreadPractice run...." + i);
       Thread.sleep(2);
     }
 
